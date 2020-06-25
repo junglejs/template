@@ -11,11 +11,12 @@
     "rollup": "^2.3.4",
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-svelte-ssr": "^1.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "svelte": "^3.0.0"
   },
   "dependencies": {
     "express": "~4.16.1",
-    "junglejs": "^1.0.0"
+    "junglejs": "^1.1.0"
   }
 }
