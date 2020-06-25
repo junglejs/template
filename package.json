@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "express": "~4.16.1",
-    "junglejs": "^1.1.0"
+    "junglejs": "^1.1.1"
   }
 }

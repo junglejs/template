@@ -1,5 +1,9 @@
 <script>
 	import Nav from "../../components/Nav.svelte";
+
+	function hello() {
+		alert('Hello!');
+	}
 </script>
 
 <Nav page="/blog/about-blog"/>
@@ -39,4 +43,5 @@
     <h1>About the Blog</h1>
 
     <p>Trying to write awesome stuff here!</p>
+	<button on:click={hello}>Hello</button>
 </main>
