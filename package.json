@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node app.js",
-    "build": "node build.js"
+    "build": "cross-env PRODUCTION=1 node app.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
@@ -13,6 +13,7 @@
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-svelte-ssr": "^1.0.3",
     "rollup-plugin-terser": "^5.1.2",
+    "cross-env": "^7.0.2",
     "svelte": "^3.0.0"
   },
   "dependencies": {
