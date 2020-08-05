@@ -3,12 +3,12 @@ const { fork } = require("child_process");
 
 const restartProcess = (childProcess) => {
   try {
-    childProcess.kill("SIGHUP");
+    childProcess.kill("SIGTERM");
     const [_, command, ...args] = process.argv;
     childProcess = fork("./app.js", args, {
       detached: true,
       stdio: "inherit",
-    }).unref();
+    });
   } catch (err) {
     console.log(err);
   } finally {
@@ -18,9 +18,6 @@ const restartProcess = (childProcess) => {
 
 const main = async () => {
   let watcher;
-  console.log(
-    `cmd+C will not work! Use 'kill -15 ${process.pid}' to kill this process.`
-  );
   const [_, command, ...args] = process.argv;
   const watchedFiles = args.reduce((arr, arg, i) => {
     if (arg === "--watch" && typeof args[i + 1] === "string") {
@@ -36,6 +33,9 @@ const main = async () => {
   await !!childProcess;
   watcher.on("change", (path) => {
     restartProcess(childProcess);
+  });
+  process.on("SIGINT", function () {
+    childProcess.kill("SIGTERM");
   });
 };
 
